@@ -5,3 +5,5 @@ minimumReleaseAgeExclude:
   - astro@7.4.11
   - '@astrojs/react-renderer@0.1.2'
   - '@astrojs/react@7.1.8'
+  - '@astrojs/markdown-satteri@0.4.10'
+  - '@astrojs/mdx@8.1.6'
