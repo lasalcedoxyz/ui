@@ -9,7 +9,9 @@ const resourceTypeSchema = z.enum([
 ]).default('documentation');
 
 export const resourceSchema = z.object({
-    label: z.string(),
+    title: z.string(),
+    description: z.string().optional(),
     type: resourceTypeSchema,
     url: z.url().optional(),
+    icon: z.string().optional(),
 });

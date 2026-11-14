@@ -1,6 +1,8 @@
 import { z } from 'astro/zod'
 
 export const versionSchema = z.object({
-    version: z.int(),
-    releaseDate: z.coerce.date(),
+    number: z.number(),
+    label: z.string(),
+    releaseDate: z.coerce.date().optional(),
+    prerelease: z.boolean().default(false),
 });
