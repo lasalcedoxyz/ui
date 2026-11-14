@@ -41,6 +41,7 @@ const blog = defineCollection({
         title: z.string().min(1).max(200),
         slug: z.string(),
         draft: z.boolean().default(false),
+        category: z.string().optional(),
         lastUpdate: z.coerce.date().optional(),
         createdAt: z.coerce.date().optional(),
     })
