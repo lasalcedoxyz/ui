@@ -2,6 +2,23 @@ import { defineCollection } from 'astro:content';
 import { glob, file } from 'astro/loaders';
 import { z } from 'astro/zod';
 
+const tagSchema = z.object({
+    name: z.string(),
+    slug: z.string(), 
+});
+
+const categorySchema = z.object({
+    name: z.string(),
+    slug: z.string(),
+    icon: z.string().optional(),
+});
+
+const versionSchema = z.object({
+    version: z.int(),
+    releaseDate: z.coerce.date(),
+});
+
+
 const page = defineCollection({
     loader: glob({
         pattern: '**/*.{md,mdx}',
@@ -42,6 +59,7 @@ const blog = defineCollection({
         slug: z.string(),
         draft: z.boolean().default(false),
         category: z.string().optional(),
+        tags: z.array(tag).optional(),
         lastUpdate: z.coerce.date().optional(),
         createdAt: z.coerce.date().optional(),
     })
