@@ -3,12 +3,14 @@ import {
     changeSchema,
     authorSchema,
     tagSchema,
+    versionSchema
 } from '@/schemas/objects';
 
 export const changelogSchema = z.object({
     title: z.string(),
+    slug: z.string(),
     description: z.string().optional(),
-    version: z.string(),
+    version: versionSchema,
     date: z.coerce.date().optional(),
     draft: z.boolean().default(false),
     breaking: z.boolean().default(false),

@@ -22,7 +22,6 @@ export const componentSchema = z.object({
     frameworks: z.array(frameworkSchema).optional(),
     contributors: z.array(authorSchema).optional(),
     tags: z.array(tagSchema).optional(),
-    related: relatedContentSchema,
     updatedAt: z.coerce.date().optional(),
     createdAt: z.coerce.date().optional(),
 })

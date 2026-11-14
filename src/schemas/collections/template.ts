@@ -27,7 +27,7 @@ export const templateSchema = z.object({
     dependencies: z.array(dependencySchema).optional(),
     demoUrl: z.url().optional(),
     repositoryUrl: z.url().optional(),
-    license: licenseSchema,
+    license: licenseSchema.optional(),
     tags: z.array(tagSchema).optional(),
     updatedAt: z.coerce.date().optional(),
     createdAt: z.coerce.date().optional(),
