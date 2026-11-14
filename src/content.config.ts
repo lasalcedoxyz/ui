@@ -11,6 +11,23 @@ const changeTypeSchema = z.enum([
     'security', 
 ]).default('added');
 
+const frameworkTypeSchema = z.enum([
+    'astro',
+    'react',
+    'next',
+    'tanstack-start', 
+    'tailwind',
+    'gsap',
+]).default('astro');
+
+const dependencyTypeSchema = z.enum([
+    'dependency',
+    'dev',
+    'peer',
+    'optional', 
+]).default('dependency');
+
+//Objects
 const tagSchema = z.object({
     name: z.string(),
     slug: z.string(), 
@@ -49,6 +66,21 @@ const changeSchema = z.object({
     links: z.array(z.url()).default([]),
 });
 
+const frameworkSchema = z.object({
+    type: z.array(frameworkTypeSchema),
+    version: z.string().optional(),
+    minVersion: z.coerce.date().optional(),
+    maxVersion: z.coerce.date().optional(),
+});
+
+const dependencySchema = z.object({
+    name: z.string(),
+    version: z.string().default('latest'),
+    type: dependencyTypeSchema,
+    optional: z.boolean().default(false),
+});
+
+//Collections
 const page = defineCollection({
     loader: glob({
         pattern: '**/*.{md,mdx}',
@@ -116,10 +148,31 @@ const changelog = defineCollection({
     })
 });
 
+const component = defineCollection({
+    loader: glob({
+        pattern: '**/*.{md,mdx}',
+        base: './src/content/components',
+    }),
+    schema: z.object({
+        name: z.string(),
+        slug: z.string(),
+        description: z.string().optional(),
+        status: z.enum(['component', 'block', 'template']).default('component'),
+        category: z.string(),
+        subCategory: z.string().optional(),
+        dependencies: z.array(dependencySchema).optional(),
+        frameworks: z.array(frameworkSchema).optional(),
+        tags: z.array(tagSchema).optional(),
+        lastUpdate: z.coerce.date().optional(),
+        createdAt: z.coerce.date().optional(),
+    })
+});
+
 
 export const collections  = {
     page,
     doc,
     blog,
     changelog,
+    component,
 }
