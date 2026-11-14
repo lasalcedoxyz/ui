@@ -4,7 +4,7 @@ import { z } from 'astro/zod';
 
 const page = defineCollection({
     loader: glob({
-        pattern: '**/*.{md, mdx}',
+        pattern: '**/*.{md,mdx}',
         base: './src/content/pages',
     }),
     schema: z.object({
@@ -18,7 +18,7 @@ const page = defineCollection({
 
 const doc = defineCollection({
     loader: glob({
-        pattern: '**/*.{md, mdx}',
+        pattern: '**/*.{md,mdx}',
         base: './src/content/docs',
     }),
     schema: z.object({
@@ -34,7 +34,7 @@ const doc = defineCollection({
 
 const blog = defineCollection({
     loader: glob({
-        pattern: '**/*.{md, mdx}',
+        pattern: '**/*.{md,mdx}',
         base: './src/content/blogs',
     }),
     schema: z.object({
