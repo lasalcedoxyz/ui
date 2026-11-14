@@ -1,5 +1,8 @@
 import { z } from 'astro/zod';
-import { versionSchema } from '@/schemas/objects';
+import { 
+    versionSchema,
+    linkSchema 
+} from '@/schemas/objects';
 
 const packageManagerSchema = z.enum([
     'pnpm',
@@ -12,6 +15,6 @@ export const packageSchema = z.object({
     name: z.string(),
     description: z.string().optional(),
     version: versionSchema,
-    registry: z.url().optional(),
+    registry: linkSchema.optional(),
     packageManager: packageManagerSchema,
 })
