@@ -8,6 +8,7 @@ import { dependencySchema } from "./dependency";
 import { changeSchema } from "./change";
 import { versionSchema } from "./version";
 import { registryStatusSchema } from "./status";
+import { resourceSchema } from "./resource";
 
 export {
     linkSchema,
@@ -19,4 +20,5 @@ export {
     dependencySchema,
     changeSchema,
     versionSchema,
+    resourceSchema,
 } 

@@ -4,7 +4,8 @@ import { docSchema } from "./doc";
 import { blogSchema } from "./blog";
 import { changelogSchema } from "./changelog";
 import { componentSchema } from "./component";
-
+import { blockSchema } from "./block";
+import { templateSchema } from "./template";
 
 export {
     pageSchema,
@@ -12,4 +13,6 @@ export {
     blogSchema,
     changelogSchema,
     componentSchema,
+    blockSchema,
+    templateSchema
 }

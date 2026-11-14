@@ -14,4 +14,5 @@ export const frameworkSchema = z.object({
     version: z.string().optional(),
     minVersion: z.coerce.date().optional(),
     maxVersion: z.coerce.date().optional(),
+    notes: z.array(z.string()).optional(),
 });
