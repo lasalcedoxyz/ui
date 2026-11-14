@@ -1,8 +1,9 @@
 import { z } from 'astro/zod';
-import { 
+import {
     changeSchema,
     authorSchema,
-} from "@/schemas/objects";
+    tagSchema,
+} from '@/schemas/objects';
 
 export const changelogSchema = z.object({
     title: z.string(),
@@ -13,8 +14,9 @@ export const changelogSchema = z.object({
     breaking: z.boolean().default(false),
     prerelease: z.boolean().default(false),
     changes: z.array(changeSchema).optional(),
-    contributors: z.array(authorSchema).optional(),
     releaseUrl: z.url().optional(),
-    lastUpdate: z.coerce.date().optional(),
+    contributors: z.array(authorSchema).optional(),
+    tags: z.array(tagSchema).optional(),
+    updatedAt: z.coerce.date().optional(),
     createdAt: z.coerce.date().optional(),
 })

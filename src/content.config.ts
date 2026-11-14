@@ -7,6 +7,8 @@ import {
     docSchema,
     changelogSchema,
     componentSchema, 
+    blockSchema,
+    templateSchema,
 } from '@/schemas/collections';
 
 const page = defineCollection({
@@ -49,10 +51,28 @@ const component = defineCollection({
     schema: componentSchema,
 });
 
+const block = defineCollection({
+    loader: glob({
+        pattern: '**/*.{md,mdx}',
+        base: './src/content/blocks',
+    }),
+    schema: blockSchema,
+});
+
+const template = defineCollection({
+    loader: glob({
+        pattern: '**/*.{md,mdx}',
+        base: './src/content/templates',
+    }),
+    schema: templateSchema,
+});
+
 export const collections  = {
     page,
     doc,
     blog,
     changelog,
     component,
+    block,
+    template,
 }

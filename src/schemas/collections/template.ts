@@ -1,14 +1,15 @@
 import { z } from 'astro/zod';
-import { 
+import {
     componentSchema,
-    blockSchema, 
+    blockSchema,
 } from '@/schemas/collections';
-import { 
+import {
     registryStatusSchema,
     dependencySchema,
     frameworkSchema,
     categorySchema,
-    tagSchema 
+    tagSchema,
+    licenseSchema
 } from '@/schemas/objects';
 
 export const templateSchema = z.object({
@@ -18,15 +19,16 @@ export const templateSchema = z.object({
     status: registryStatusSchema,
     category: categorySchema,
     subCategory: categorySchema.optional(),
-    dependencies: z.array(dependencySchema).optional(),
     frameworks: z.array(frameworkSchema).optional(),
     features: z.array(z.string()).default([]),
     pages: z.array(z.string()).default([]),
     components: z.array(componentSchema).optional(),
     blocks: z.array(blockSchema).optional(),
+    dependencies: z.array(dependencySchema).optional(),
     demoUrl: z.url().optional(),
     repositoryUrl: z.url().optional(),
+    license: licenseSchema,
     tags: z.array(tagSchema).optional(),
-    lastUpdate: z.coerce.date().optional(),
+    updatedAt: z.coerce.date().optional(),
     createdAt: z.coerce.date().optional(),
 });
