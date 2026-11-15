@@ -1,17 +1,15 @@
 import { z } from 'astro/zod';
-import {
-    contentStatusSchema,
-    authorSchema,
-    tagSchema,
-} from '@/schemas/objects';
+import { reference } from 'astro:content';
+import { contentStatusSchema } from '@/schemas/objects';
+
 
 export const pageSchema = z.object({
     title: z.string(),
     slug: z.string(),
     description: z.string().optional(),
     status: contentStatusSchema,
-    authors: z.array(authorSchema).optional(),
-    tags: z.array(tagSchema).optional(),
+    authors: z.array(reference('author')).optional(),
+    tags: z.array(reference('tag')).optional(),
     updatedAt: z.coerce.date().optional(),
     createdAt: z.coerce.date().optional(),
 });
