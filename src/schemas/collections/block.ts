@@ -1,14 +1,10 @@
 import { z } from 'astro/zod'
+import { reference } from 'astro:content';
 import { componentSchema } from '@/schemas/collections';
 import {
     versionSchema,
     registryStatusSchema,
-    dependencySchema,
-    frameworkSchema,
-    categorySchema,
-    authorSchema,
     relatedContentSchema,
-    tagSchema
 } from '@/schemas/objects';
 
 export const blockSchema = z.object({
@@ -17,13 +13,12 @@ export const blockSchema = z.object({
     description: z.string().optional(),
     version: versionSchema,
     status: registryStatusSchema,
-    category: categorySchema,
-    subCategory: categorySchema.optional(),
-    components: z.array(componentSchema).optional(),
-    dependencies: z.array(dependencySchema).optional(),
-    frameworks: z.array(frameworkSchema).optional(),
-    contributors: z.array(authorSchema).optional(),
-    tags: z.array(tagSchema).optional(),
+    category: reference('category'),
+    subCategory: reference('category').optional(),
+    components: reference('component').optional(),
+    dependencies: reference('dependency').optional(),
+    contributors: z.array(reference('author')).optional(),
+    tags: z.array(reference('tag')).optional(),
     related: relatedContentSchema.optional(),
     updatedAt: z.coerce.date().optional(),
     createdAt: z.coerce.date().optional(),

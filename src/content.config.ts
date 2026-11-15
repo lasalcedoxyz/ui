@@ -1,16 +1,21 @@
 import { defineCollection } from 'astro:content';
-import { glob, file } from 'astro/loaders';
-import { z } from 'astro/zod';
+import { glob } from 'astro/loaders';
 import { 
     pageSchema,
     blogSchema,
     docSchema,
-    changelogSchema,
     componentSchema, 
     blockSchema,
     templateSchema,
+    changelogSchema,
+    tagSchema,
+    categorySchema,
+    authorSchema,
+    frameworkSchema,
+    dependencySchema
 } from '@/schemas/collections';
 
+//Content Collections
 const page = defineCollection({
     loader: glob({
         pattern: '**/*.{md,mdx}',
@@ -33,14 +38,6 @@ const doc = defineCollection({
         base: './src/content/docs',
     }),
     schema: docSchema,
-});
-
-const changelog = defineCollection({
-    loader: glob({
-        pattern: '**/*.{md,mdx}',
-        base: './src/content/changelog',
-    }),
-    schema: changelogSchema,
 });
 
 const component = defineCollection({
@@ -67,12 +64,66 @@ const template = defineCollection({
     schema: templateSchema,
 });
 
+const changelog = defineCollection({
+    loader: glob({
+        pattern: '**/*.{md,mdx}',
+        base: './src/content/changelog',
+    }),
+    schema: changelogSchema,
+});
+
+//Collection Objects
+const tag = defineCollection({
+    loader: glob({
+        pattern: '**/*.json',
+        base: './src/content/data/tags'
+    }),
+    schema: tagSchema,
+});
+
+const category = defineCollection({
+    loader: glob({
+        pattern: '**/*.json',
+        base: './src/content/data/categories'
+    }),
+    schema: categorySchema,
+});
+
+const author = defineCollection({
+    loader: glob({
+        pattern: '**/*.json',
+        base: './src/content/data/authors'
+    }),
+    schema: authorSchema,
+});
+
+const framework = defineCollection({
+    loader: glob({
+        pattern: '**/*.json',
+        base: './src/content/data/frameworks'
+    }),
+    schema: frameworkSchema,
+});
+
+const dependency = defineCollection({
+    loader: glob({
+        pattern: '**/*.json',
+        base: './src/content/data/dependencies'
+    }),
+    schema: dependencySchema,
+});
+
 export const collections  = {
     page,
-    doc,
     blog,
-    changelog,
+    doc,
     component,
     block,
     template,
+    changelog,
+    tag,
+    category,
+    author,
+    framework,
+    dependency,
 }
