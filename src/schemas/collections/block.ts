@@ -18,8 +18,8 @@ export const blockSchema = z.object({
     components: reference('component').optional(),
     dependencies: reference('dependency').optional(),
     contributors: z.array(reference('author')).optional(),
+    related: z.array(reference('template')).optional(),
     tags: z.array(reference('tag')).optional(),
-    related: relatedContentSchema.optional(),
     updatedAt: z.coerce.date().optional(),
     createdAt: z.coerce.date().optional(),
 });
