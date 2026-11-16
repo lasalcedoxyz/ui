@@ -1,0 +1,25 @@
+---
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const blocks = await getCollection('block');
+  
+  const paths = blocks.map((block) => ({
+    params: { 
+      category: block.data.category.id.split('/').pop()!,
+      slug: block.data.slug 
+    },
+    props: { block },
+  }));
+
+  console.log(
+    paths.map((path) => path.params)
+  );
+
+  return paths;
+}
+
+const { block } = Astro.props;
+const { Content } = await render(block);
+---
+<Content />

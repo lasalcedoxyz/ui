@@ -1,0 +1,15 @@
+---
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const templates = await getCollection('template');
+  return templates.map(template => ({
+    params: { slug: template.data.slug },
+    props: { template },
+  }));
+}
+
+const { template } = Astro.props;
+const { Content } = await render(template);
+---
+<Content />
