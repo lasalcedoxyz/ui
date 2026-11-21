@@ -1,17 +1,14 @@
 {
   "extends": "astro/tsconfigs/strict",
-  "include": [
-    ".astro/types.d.ts",
-    "**/*"
-  ],
-  "exclude": [
-    "dist"
-  ],
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"],
   "compilerOptions": {
+    "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./*"],
+      "@/lib/*": ["registry/kotlerui/lib/*"],
+      "@/hooks/*": ["registry/kotlerui/hooks/*"],
+      "@/components/ui/*": ["registry/kotlerui/ui/*"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"
