@@ -13,11 +13,11 @@
   "iconLibrary": "lucide",
   "rtl": false,
   "aliases": {
-    "components": "@/components",
-    "utils": "@/lib/utils",
-    "ui": "@/components/ui",
-    "lib": "@/lib",
-    "hooks": "@/hooks"
+    "components": "@/registry/kotlerui/components",
+    "utils": "@/registry/kotlerui/lib/utils",
+    "ui": "@/registry/kotlerui/ui",
+    "lib": "@/registry/kotlerui/lib",
+    "hooks": "@/registry/kotlerui/hooks"
   },
   "menuColor": "default",
   "menuAccent": "subtle",
