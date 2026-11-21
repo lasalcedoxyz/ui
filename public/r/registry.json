@@ -1,0 +1,63 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "kotlerui",
+  "homepage": "https://acme.com",
+  "items": [
+    {
+      "name": "button",
+      "files": [
+        {
+          "path": "registry/kotlerui/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "input",
+      "files": [
+        {
+          "path": "registry/kotlerui/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "use-mobile",
+      "files": [
+        {
+          "path": "registry/kotlerui/hooks/use-mobile.ts",
+          "type": "registry:hook"
+        }
+      ],
+      "type": "registry:hook"
+    },
+    {
+      "name": "use-highlited-code",
+      "files": [
+        {
+          "path": "registry/kotlerui/hooks/use-highlighted-code.ts",
+          "type": "registry:hook"
+        }
+      ],
+      "type": "registry:hook"
+    },
+    {
+      "name": "utils",
+      "files": [
+        {
+          "path": "registry/kotlerui/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils.ts"
+        },
+        {
+          "path": "registry/kotlerui/lib/highlighter.tsx",
+          "type": "registry:lib",
+          "target": "@lib/utils.ts"
+        }
+      ],
+      "type": "registry:lib"
+    }
+  ]
+}
