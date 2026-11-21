@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "items": [
+    {
+      "name": "megamenu",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "megamenu.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}
