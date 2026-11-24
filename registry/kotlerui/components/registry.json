@@ -2,11 +2,11 @@
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "items": [
     {
-      "name": "megamenu",
+      "name": "navbar-simple",
       "type": "registry:component",
       "files": [
         {
-          "path": "megamenu.tsx",
+          "path": "navbar/navbar-simple.tsx",
           "type": "registry:component"
         }
       ]
