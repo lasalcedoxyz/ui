@@ -13,7 +13,7 @@ import {
   authorSchema,
   frameworkSchema,
   dependencySchema,
-} from "@/src/schemas/collections/index";
+} from "../src/schemas/collections/index.ts";
 
 //Content Collections
 const page = defineCollection({
@@ -127,4 +127,3 @@ export const collections = {
   framework,
   dependency,
 };
-
