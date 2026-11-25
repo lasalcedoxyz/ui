@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "items": [
+    {
+      "name": "navbar-simple",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "navbar/navbar-simple.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const categories = await getCollection('category');
+  const blocks = await getCollection('block');
+
+  return categories.map((category) => ({
+    params: {
+      category: category.data.id,
+    },
+    props: {
+      category,
+      blocks: blocks.filter(
+        (block) => block.data.category.id === category.id,
+      ),
+    },
+  }));
+}
+
+const { category, blocks } = Astro.props;
+---
+
+<h1>{category.data.label}</h1>
+{blocks.map((block) => (
+  <a href={`${block.data.slug}`}>{block.data.name}</a>
+))}

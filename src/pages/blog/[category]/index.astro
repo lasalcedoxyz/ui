@@ -1,0 +1,33 @@
+---
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const categories = await getCollection('category');
+  const posts = await getCollection('blog');
+
+  const paths = categories.map((category) => ({
+    params: {
+      category: category.data.id,
+    },
+    props: {
+      category,
+      posts: posts.filter(
+        (post) => post.data.category.id === category.id,
+      ),
+    },
+  }));
+
+  console.log(
+    paths.map((path) => path.params)
+  );
+
+  return paths;
+}
+
+const { category, posts } = Astro.props;
+---
+
+<h1>{category.data.label}</h1>
+{posts.map((post) => (
+  <a href={post.data.category.id}>{post.data.title}</a>
+))}

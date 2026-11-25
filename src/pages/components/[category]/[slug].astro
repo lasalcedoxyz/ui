@@ -1,0 +1,27 @@
+---
+import { getCollection, getEntry, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const components = await getCollection("component");
+
+  const paths = components.map((component) => ({
+    params: {
+      category: component.data.category.id.split("/").pop()!,
+      slug: component.data.slug,
+    },
+    props: { component },
+  }));
+
+  console.log(
+    "Generated component paths:",
+    paths.map((path) => path.params)
+  );
+
+  return paths;
+}
+
+const { component } = Astro.props;
+const { Content } = await render(component);
+---
+
+<Content />

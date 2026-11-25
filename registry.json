@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "kotlerui",
+  "homepage": "https://acme.com",
+  "include": [
+    "registry/kotlerui/ui/registry.json",
+    "registry/kotlerui/components/registry.json",
+    "registry/kotlerui/blocks/registry.json",
+    "registry/kotlerui/hooks/registry.json",
+    "registry/kotlerui/lib/registry.json"
+  ]
+}

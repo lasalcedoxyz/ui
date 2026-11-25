@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "items": [
+    {
+      "name": "use-mobile",
+      "type": "registry:hook",
+      "files": [
+        {
+          "path": "use-mobile.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-highlited-code",
+      "type": "registry:hook",
+      "files": [
+        {
+          "path": "use-highlighted-code.ts",
+          "type": "registry:hook"
+        }
+      ]
+    }
+  ]
+}

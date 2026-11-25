@@ -1,0 +1,13 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+
+const components = await getCollection('component');
+---
+
+<div>
+    {components.map(component => (
+        <div class="w-full min-h-50 border rounded-md">
+            <p>{component.data.name}</p>
+        </div>
+    ))}
+</div>

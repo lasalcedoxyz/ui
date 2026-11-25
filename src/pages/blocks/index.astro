@@ -1,0 +1,14 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+
+const blocks = await getCollection('block');
+---
+
+<div>
+    <h2>Blocks</h2>
+    {blocks.map(block => (
+        <div class="w-full min-h-50 border rounded-md">
+            <p>{block.data.name}</p>
+        </div>
+    ))}
+</div>

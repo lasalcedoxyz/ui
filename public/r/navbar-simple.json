@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "navbar-simple",
+  "files": [
+    {
+      "path": "registry/kotlerui/components/navbar/navbar-simple.tsx",
+      "content": "import * as React from \"react\";\nimport { cn } from \"cn\";\nimport {\n  NavigationMenu,\n  NavigationMenuContent,\n  NavigationMenuItem,\n  NavigationMenuLink,\n  NavigationMenuList,\n  NavigationMenuTrigger,\n} from \"@/registry/kotlerui/ui/navigation-menu\";\nimport { Button } from \"@/registry/kotlerui/ui/button\";\n\nexport interface NavbarSimpleProps {\n  logo: string;\n  links: {\n    id: string;\n    label: string;\n    href: string;\n    icon?: string;\n  }[];\n  actions?: {\n    id: string;\n    label: string;\n    href?: string;\n    variant?: \"default\" | \"outline\" | \"secondary\" | \"ghost\";\n  }[];\n}\n\nfunction NavbarSimple({ logo, links = [], actions = [] }: NavbarSimpleProps) {\n  return (\n    <NavigationMenu>\n      <NavigationMenuLink href=\"/\">{logo}</NavigationMenuLink>\n      <NavigationMenuList>\n        {links.map((item) => (\n          <NavigationMenuItem key={item.id}>\n            <NavigationMenuLink href={item.href}>\n              {item.label}\n            </NavigationMenuLink>\n          </NavigationMenuItem>\n        ))}\n      </NavigationMenuList>\n      <div className=\"flex items-center gap-x-3\">\n        {actions?.map((item) => (\n          <Button key={item.id} asChild variant={item.variant ?? \"default\"}>\n            {item.label}\n          </Button>\n        ))}\n      </div>\n    </NavigationMenu>\n  );\n}\n\nexport { NavbarSimple };\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

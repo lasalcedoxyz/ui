@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "items": [
+    {
+      "name": "hero",
+      "type": "registry:block",
+      "files": [
+        {
+          "path": "hero.tsx",
+          "type": "registry:block"
+        }
+      ]
+    }
+  ]
+}
