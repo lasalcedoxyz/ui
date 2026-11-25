@@ -1,5 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro'
+import Prose from '../../components/Prose.astro';
 
 export async function getStaticPaths() {
   const docs = await getCollection('doc');
@@ -12,5 +14,13 @@ export async function getStaticPaths() {
 const { doc } = Astro.props;
 const { Content } = await render(doc);
 ---
+<<<<<<< HEAD
 
 <Content/>
+=======
+<Layout>
+<Prose>
+  <Content/>
+</Prose>
+</Layout>
+>>>>>>> feat/layout
