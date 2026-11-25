@@ -1,4 +1,74 @@
 ---
 import "../styles/global.css"
----
+import { Font } from "astro:assets";
 
+import { NavbarSimple } from "@/registry/kotlerui/components/navbar/navbar-simple"; 
+import { Button } from "@/components/ui/button";
+
+const navMenu = [
+  {
+    id: "components",
+    label: "Components",
+    href: "/components",
+  },
+  {
+    id: "blocks",
+    label: "Blocks",
+    href: "/blocks",
+  },
+  {
+    id: "templates",
+    label: "Templates",
+    href: "/templates",
+  },
+  {
+    id: "docs",
+    label: "Docs",
+    href: "/docs",
+  },
+  {
+    id: "pricing",
+    label: "Pricing",
+    href: "/pricing",
+  },
+];
+
+const actions = [
+  {
+    id: "login",
+    label: "Log in",
+    href: "/login",
+    variant: "outline" as const,
+  },
+  {
+    id: "signup",
+    label: "Get started",
+    href: "/signup",
+    variant: "default" as const,
+  },
+];
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet"><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <Font cssVariable="--font-sans"/>
+  </head>
+  <body>
+    <NavbarSimple 
+      logo="kotlerui"
+      links={navMenu} 
+      actions={actions}
+      client:load
+    />
+    <slot/> 
+
+  </body>
+</html>

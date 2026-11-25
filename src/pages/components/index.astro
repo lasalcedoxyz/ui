@@ -1,13 +1,19 @@
 ---
 import { getCollection, getEntry } from 'astro:content';
+import Layout from '../../layouts/Layout.astro'
 
 const components = await getCollection('component');
 ---
 
+<Layout>
 <div>
-    {components.map(component => ( 
+    {components.map(component => (
         <div class="w-full min-h-50 border rounded-md">
             <p>{component.data.name}</p>
         </div>
     ))}
 </div>
+<<<<<<< HEAD
+=======
+</Layout>
+>>>>>>> feat/layout

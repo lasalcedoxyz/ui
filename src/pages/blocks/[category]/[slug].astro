@@ -3,11 +3,11 @@ import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
   const blocks = await getCollection('block');
-  
+
   const paths = blocks.map((block) => ({
-    params: { 
+    params: {
       category: block.data.category.id.split('/').pop()!,
-      slug: block.data.slug 
+      slug: block.data.slug
     },
     props: { block },
   }));

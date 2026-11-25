@@ -3,10 +3,10 @@ import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
   const pages = await getCollection('page');
-  
+
   const paths = pages.map((page) => ({
-    params: { 
-      slug: page.data.slug 
+    params: {
+      slug: page.data.slug
     },
     props: { page },
   }));

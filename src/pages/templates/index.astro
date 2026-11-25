@@ -5,7 +5,7 @@ const templates = await getCollection('template');
 ---
 
 <div>
-    {templates.map(template => ( 
+    {templates.map(template => (
         <div class="w-full min-h-50 border rounded-md">
             <p>{template.data.name}</p>
         </div>

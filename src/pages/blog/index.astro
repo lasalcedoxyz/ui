@@ -5,7 +5,7 @@ const posts = await getCollection('blog');
 ---
 
 <div>
-    {posts.map(post => ( 
+    {posts.map(post => (
         <div class="w-full min-h-50 border rounded-md">
             <p>{post.data.title}</p>
         </div>
