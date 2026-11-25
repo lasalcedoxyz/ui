@@ -1,5 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
+import Layout from "../../layouts/Layout.astro"
+import { Prose } from "../../components/Prose.astro"
 
 export async function getStaticPaths() {
   const changelogs = await getCollection('changelog');
@@ -13,4 +15,8 @@ const { change } = Astro.props;
 const { Content } = await render(change);
 ---
 
-<Content/>
+<Layout>
+  <Prose>
+    <Content/>
+  </Prose>
+</Layout>

@@ -1,9 +1,11 @@
 ---
 import { getCollection, getEntry } from 'astro:content';
+import Layout from "../../layouts/Layout.astro";
 
 const blocks = await getCollection('block');
 ---
 
+<Layout> 
 <div>
     <h2>Blocks</h2>
     {blocks.map(block => (
@@ -12,3 +14,4 @@ const blocks = await getCollection('block');
         </div>
     ))}
 </div>
+</Layout>

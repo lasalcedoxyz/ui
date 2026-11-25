@@ -1,13 +1,16 @@
 ---
 import { getCollection, getEntry } from 'astro:content';
+import Layout from "../../layouts/Layout.astro"
 
 const posts = await getCollection('blog');
 ---
 
-<div>
+<Layout>
+  <div>
     {posts.map(post => (
         <div class="w-full min-h-50 border rounded-md">
             <p>{post.data.title}</p>
         </div>
     ))}
 </div>
+</Layout>

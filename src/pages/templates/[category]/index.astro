@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import Layout from "../../../layouts/Layout.astro"
 
 export async function getStaticPaths() {
   const categories = await getCollection("category");
@@ -21,7 +22,9 @@ export async function getStaticPaths() {
 const { category, templates } = Astro.props;
 ---
 
-<h1>{category.data.label}</h1>
+<Layout>
+  <h1>{category.data.label}</h1>
 {templates.map((template) => (
   <a href={`${template.data.slug}`}>{template.data.name}</a>
 ))}
+</Layout>
