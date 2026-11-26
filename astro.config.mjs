@@ -5,9 +5,12 @@ import tailwindcss from "@tailwindcss/vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 import mdx from "@astrojs/mdx";
 
+import sitemap from "@astrojs/sitemap";
+
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react(), mdx()],
+  site: "https://localhost:4321.com",
+  integrations: [react(), mdx(), sitemap()],
   vite: {
     plugins: [tsconfigPaths(), tailwindcss()],
   },
