@@ -8,7 +8,9 @@
       "@/*": ["./*"],
       "@/lib/*": ["registry/kotlerui/lib/*"],
       "@/hooks/*": ["registry/kotlerui/hooks/*"],
-      "@/components/ui/*": ["registry/kotlerui/ui/*"]
+      "@/components/ui/*": ["registry/kotlerui/ui/*"],
+      "@components/*": ["registry/kotlerui/components/*"],
+      "@/blocks/*": ["registry/kotlerui/blocks/*"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"

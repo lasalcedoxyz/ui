@@ -14,6 +14,7 @@
   "rtl": false,
   "aliases": {
     "components": "@/registry/kotlerui/components",
+    "blocks": "@/registry/kotlerui/blocks",
     "utils": "@/registry/kotlerui/lib/utils",
     "ui": "@/registry/kotlerui/ui",
     "lib": "@/registry/kotlerui/lib",
