@@ -22,9 +22,14 @@ const navMenu = [
     href: "/templates",
   },
   {
-    id: "docs",
-    label: "Docs",
-    href: "/docs",
+    id: "tools",
+    label: "Tools",
+    href: "/tools",
+  },
+  {
+    id: "mcp",
+    label: "MCP",
+    href: "/mcp",
   },
   {
     id: "pricing",
@@ -47,23 +52,33 @@ const actions = [
     variant: "default" as const,
   },
 ];
+
+const {
+  title,
+  description
+} = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title> 
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name=""/>
+    <!-- OG Meta-->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
     <Font cssVariable="--font-sans" preload/>
   </head>
-  <body>
+  <body class="min-h-dvh flex flex-col">
     <NavbarSimple 
       logo="kotlerui"
       links={navMenu} 
       actions={actions}
+      className="fixed"
       client:load
     />
     <slot/> 
-
   </body>
 </html>
