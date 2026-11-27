@@ -9,7 +9,6 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://localhost:4321.com",
   integrations: [react(), mdx(), sitemap()],
   vite: {
     plugins: [tsconfigPaths(), tailwindcss()],
@@ -19,6 +18,11 @@ export default defineConfig({
       provider: fontProviders.fontsource(),
       name: "DM Sans",
       cssVariable: "--font-sans",
+    },
+    {
+      provider: fontProviders.fontsource(),
+      name: "Instrument Serif",
+      cssVariable: "--font-serif",
     },
   ],
 });
